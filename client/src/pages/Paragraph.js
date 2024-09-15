@@ -13,6 +13,7 @@ import {
   Collapse,
   Card,
 } from "@mui/material";
+import { baseUrl } from "../App";
 
 const Paragraph = () => {
   const theme = useTheme();
@@ -32,7 +33,7 @@ const Paragraph = () => {
     setLoading(true);
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/v1/openai/paragraph", { text });
+      const { data } = await axios.post(`${baseUrl}/api/v1/openai/paragraph`, { text });
       setLoading(false);
       console.log(data);
       setPara(data);

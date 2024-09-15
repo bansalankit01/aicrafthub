@@ -13,6 +13,7 @@ import {
   Collapse,
   Card,
 } from "@mui/material";
+import { baseUrl } from "../App";
 
 const ChatBot = () => {
   const theme = useTheme();
@@ -32,7 +33,7 @@ const ChatBot = () => {
     setLoading(true);
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/v1/openai/chatbot", { text });
+      const { data } = await axios.post(`${baseUrl}/api/v1/openai/chatbot`, { text });
       setLoading(false);
       console.log(data);
       setResponse(data);

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import {Box, Typography, useMediaQuery, TextField, Button, Alert, Collapse} from '@mui/material';
+import { baseUrl } from '../App';
 
 
 const Register = () => {
@@ -21,7 +22,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/v1/auth/register', {username,email,password})
+      await axios.post(`${baseUrl}/api/v1/auth/register`, {username,email,password})
       toast.success('User Registered Successfully')
       navigate('/login')
     } catch (err) {

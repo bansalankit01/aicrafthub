@@ -13,6 +13,7 @@ import {
   Collapse,
   Card,
 } from "@mui/material";
+import { baseUrl } from "../App";
 
 const Summary = () => {
   const theme = useTheme();
@@ -32,7 +33,7 @@ const Summary = () => {
     setLoading(true);
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/v1/openai/summary", { text });
+      const { data } = await axios.post(`${baseUrl}/api/v1/openai/summary`, { text });
       setLoading(false);
       console.log(data);
       setSummary(data);

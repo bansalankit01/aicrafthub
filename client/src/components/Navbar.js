@@ -6,6 +6,7 @@ import axios from "axios";
 import { keyframes } from "@emotion/react";
 import toast from "react-hot-toast";
 import useTypewriter from "../customhook/useTypewriter";
+import { baseUrl } from "../App";
 // import { useTheme } from '@mui/material/styles';
 
 const Navbar = () => {
@@ -17,7 +18,7 @@ const Navbar = () => {
   // handle logout
   const handleLogout = async () => {
     try {
-      await axios.post("/api/v1/auth/logout");
+      await axios.post(`${baseUrl}/api/v1/auth/logout`);
       localStorage.removeItem("authToken");
       toast.success("Logout Successfully");
       navigate("/login");

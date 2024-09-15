@@ -13,6 +13,7 @@ import {
   Collapse,
   Card,
 } from "@mui/material";
+import { baseUrl } from "../App";
 
 const JsConverter = () => {
   const theme = useTheme();
@@ -32,7 +33,7 @@ const JsConverter = () => {
     setLoading(true);
     e.preventDefault();
     try {
-      const { data } = await axios.post("http://localhost:8080/api/v1/openai/js-converter", { text });
+      const { data } = await axios.post(`${baseUrl}/api/v1/openai/js-converter`, { text });
       setLoading(false);
       console.log(data);
       setCode(data);

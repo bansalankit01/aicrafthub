@@ -39,4 +39,7 @@ function App() {
   );
 }
 
+// export const baseUrl = "http://localhost:8080";
+export const baseUrl = "https://aicrafthub.onrender.com";
+
 export default App;
